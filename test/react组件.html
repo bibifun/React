@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React! React! React!</title>
+    <script src="../node_modules/react/dist/react.js"></script>
+    <script src="../node_modules/react-dom/dist/react-dom.js"></script>
+    <script src="../js/browser.js"></script>
+    <script type="text/babel">
+        window.onload = function(){
+            var app = document.getElementById('app')
+            //React 组件是通过 JSX 输出 HTML 元素的可重用的 JavaScript 代码块。
+            var HelloWorld = React.createClass({
+                render : function(){
+                    return(
+                        <p>你好，{this.props.greetTarget}!</p>
+                    )
+                }
+            });
+            ReactDOM.render(
+                <div>
+                    <HelloWorld greetTarget="wangwei"/>
+                    <HelloWorld greetTarget="react"/>
+                    <HelloWorld greetTarget="20K"/>
+                </div>,
+                app
+            );
+        }
+    </script>
+  </head>
+  <body>
+      <div id="app">
+
+      </div>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React! React! React!</title>
+    <script src="../node_modules/react/dist/react.js"></script>
+    <script src="../node_modules/react-dom/dist/react-dom.js"></script>
+    <script src="../js/browser.js"></script>
+    <script type="text/babel">
+        window.onload = function(){
+            var app = document.getElementById('app')
+            //React 组件是通过 JSX 输出 HTML 元素的可重用的 JavaScript 代码块。
+            var Letter = React.createClass({
+                render: function() {
+                var letterStyle = {
+                    padding: 10,
+                    margin: 10,
+                    backgroundColor: this.props.bgcolor,
+                    color: "#333",
+                    display: "inline-block",
+                    fontFamily: "monospace",
+                    fontSize: "32",
+                    textAlign: "center"
+                };
+                  return (
+                    <div style={letterStyle}>
+                      {this.props.children}
+                    </div>
+                  );
+                }
+              });
+              ReactDOM.render(
+                <div>
+                  <Letter bgcolor="#58b3ff">A</Letter>
+                  <Letter bgcolor="#ff605f">E</Letter>
+                  <Letter bgcolor="#ffd52e">I</Letter>
+                  <Letter bgcolor="#49dd8e">O</Letter>
+                  <Letter bgcolor="#ae99ff">U</Letter>
+                </div>,
+                app
+              );
+        }
+    </script>
+  </head>
+  <body>
+      <div id="app">
+
+      </div>
+  </body>
+</html>

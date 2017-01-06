@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React! React! React!</title>
+    <script src="../node_modules/react/dist/react.js"></script>
+    <script src="../node_modules/react-dom/dist/react-dom.js"></script>
+    <script src="../js/browser.js"></script>
+    <script type="text/babel">
+        window.onload = function(){
+            var app = document.getElementById('app')
+            //React 组件是通过 JSX 输出 HTML 元素的可重用的 JavaScript 代码块。
+            var Display = React.createClass({
+              render: function() {
+                return(
+                  <div>
+                    <p>{this.props.color}</p>
+                    <p>{this.props.num}</p>
+                    <p>{this.props.size}</p>
+                  </div>
+                );
+              }
+            });
+
+            var Label = React.createClass({
+              render: function() {
+                return (
+                  <Display {...this.props}/>
+                );
+              }
+            });
+
+            var Shirt = React.createClass({
+              render: function() {
+                return (
+                  <div>
+                    <Label {...this.props}/>
+                  </div>
+                );
+              }
+            });
+
+            ReactDOM.render(
+              <div>
+                <Shirt color="steelblue" num="3.14" size="medium" />
+              </div>,
+              app
+            );
+        }
+    </script>
+  </head>
+  <body>
+      <div id="app">
+
+      </div>
+  </body>
+</html>
